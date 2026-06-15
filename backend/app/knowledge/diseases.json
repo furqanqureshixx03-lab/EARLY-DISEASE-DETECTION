@@ -1,0 +1,122 @@
+{
+  "early_blight": {
+    "displayName": "Early Blight",
+    "pathogen": "Alternaria solani",
+    "type": "fungal",
+    "affectedPlants": ["Tomato", "Potato"],
+    "favorableHumidityMin": 65,
+    "favorableHumidityMax": 100,
+    "favorableTempMin": 24,
+    "favorableTempMax": 30,
+    "rainSensitive": true,
+    "windSpreadRisk": "moderate",
+    "incubationDays": 3,
+    "spreadSpeed": "moderate",
+    "description": "Causes dark concentric rings on older leaves. Thrives in warm, humid conditions and spreads via rain splash.",
+    "treatmentWindows": {
+      "beforeRain": "Apply fungicide at least 12 hours before expected rain",
+      "afterRain": "Reapply copper-based fungicide 24 hours after rain clears",
+      "highHumidity": "Increase application frequency when humidity stays above 75%"
+    }
+  },
+  "late_blight": {
+    "displayName": "Late Blight",
+    "pathogen": "Phytophthora infestans",
+    "type": "oomycete",
+    "affectedPlants": ["Tomato", "Potato"],
+    "favorableHumidityMin": 80,
+    "favorableHumidityMax": 100,
+    "favorableTempMin": 10,
+    "favorableTempMax": 20,
+    "rainSensitive": true,
+    "windSpreadRisk": "high",
+    "incubationDays": 2,
+    "spreadSpeed": "fast",
+    "description": "Highly destructive water mold. Dark water-soaked lesions; spreads rapidly in cool, wet weather.",
+    "treatmentWindows": {
+      "beforeRain": "Apply preventive fungicide (mancozeb or chlorothalonil) before rain",
+      "afterRain": "Inspect all plants immediately after rain; remove infected tissue",
+      "highHumidity": "Apply systemic fungicide every 5 days during prolonged humid spells"
+    }
+  },
+  "leaf_mold": {
+    "displayName": "Leaf Mold",
+    "pathogen": "Passalora fulva",
+    "type": "fungal",
+    "affectedPlants": ["Tomato"],
+    "favorableHumidityMin": 85,
+    "favorableHumidityMax": 100,
+    "favorableTempMin": 20,
+    "favorableTempMax": 25,
+    "rainSensitive": false,
+    "windSpreadRisk": "low",
+    "incubationDays": 7,
+    "spreadSpeed": "slow",
+    "description": "Yellow patches on leaf surfaces; olive-grey mold below. Primarily a greenhouse/enclosed terrace problem.",
+    "treatmentWindows": {
+      "beforeRain": "No specific rain-triggered timing needed; focus on ventilation",
+      "afterRain": "Prune lower leaves to improve airflow after wet spells",
+      "highHumidity": "Improve air circulation; avoid overhead watering when humidity exceeds 85%"
+    }
+  },
+  "powdery_mildew": {
+    "displayName": "Powdery Mildew",
+    "pathogen": "Erysiphe spp.",
+    "type": "fungal",
+    "affectedPlants": ["Rose", "Grape", "Cucurbits", "Basil"],
+    "favorableHumidityMin": 50,
+    "favorableHumidityMax": 80,
+    "favorableTempMin": 18,
+    "favorableTempMax": 26,
+    "rainSensitive": false,
+    "windSpreadRisk": "high",
+    "incubationDays": 5,
+    "spreadSpeed": "moderate",
+    "description": "White dusty coating on leaves. Unlike most fungi, prefers dry conditions with moderate humidity.",
+    "treatmentWindows": {
+      "beforeRain": "Rain can wash spores; apply neem oil before forecasted rain for extra protection",
+      "afterRain": "Monitor for rebound; apply sulfur-based fungicide 48 hours after rain",
+      "highHumidity": "Powdery mildew tolerates low humidity; focus on wind spread management"
+    }
+  },
+  "bacterial_spot": {
+    "displayName": "Bacterial Spot",
+    "pathogen": "Xanthomonas spp.",
+    "type": "bacterial",
+    "affectedPlants": ["Tomato", "Pepper"],
+    "favorableHumidityMin": 75,
+    "favorableHumidityMax": 100,
+    "favorableTempMin": 25,
+    "favorableTempMax": 30,
+    "rainSensitive": true,
+    "windSpreadRisk": "moderate",
+    "incubationDays": 4,
+    "spreadSpeed": "moderate",
+    "description": "Small water-soaked lesions that turn dark brown. Spreads rapidly in rainy, warm, windy conditions.",
+    "treatmentWindows": {
+      "beforeRain": "Apply copper bactericide 24 hours before expected rain",
+      "afterRain": "Avoid working among wet plants; reapply copper after rain subsides",
+      "highHumidity": "Apply weekly copper sprays during prolonged wet periods"
+    }
+  },
+  "anthracnose": {
+    "displayName": "Anthracnose",
+    "pathogen": "Colletotrichum spp.",
+    "type": "fungal",
+    "affectedPlants": ["Mango", "Papaya", "Chilli", "Rose"],
+    "favorableHumidityMin": 80,
+    "favorableHumidityMax": 100,
+    "favorableTempMin": 22,
+    "favorableTempMax": 32,
+    "rainSensitive": true,
+    "windSpreadRisk": "moderate",
+    "incubationDays": 4,
+    "spreadSpeed": "moderate",
+    "description": "Dark sunken lesions on fruits and leaves. Heavy rains spread spores rapidly.",
+    "treatmentWindows": {
+      "beforeRain": "Apply mancozeb before monsoon onset and before each heavy rain",
+      "afterRain": "Remove and dispose of fallen infected material after rain",
+      "highHumidity": "Increase spray frequency to every 7 days during high humidity"
+    }
+  }
+}

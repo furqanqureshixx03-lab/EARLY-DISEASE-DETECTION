@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TerraceRouteImport } from './routes/terrace'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as LibraryRouteImport } from './routes/library'
+import { Route as DiseaseIntelRouteImport } from './routes/disease-intel'
 import { Route as DetectRouteImport } from './routes/detect'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const LibraryRoute = LibraryRouteImport.update({
   id: '/library',
   path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiseaseIntelRoute = DiseaseIntelRouteImport.update({
+  id: '/disease-intel',
+  path: '/disease-intel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DetectRoute = DetectRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/detect': typeof DetectRoute
+  '/disease-intel': typeof DiseaseIntelRoute
   '/library': typeof LibraryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terrace': typeof TerraceRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/detect': typeof DetectRoute
+  '/disease-intel': typeof DiseaseIntelRoute
   '/library': typeof LibraryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terrace': typeof TerraceRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/detect': typeof DetectRoute
+  '/disease-intel': typeof DiseaseIntelRoute
   '/library': typeof LibraryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terrace': typeof TerraceRoute
@@ -78,16 +87,25 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/detect'
+    | '/disease-intel'
     | '/library'
     | '/sitemap.xml'
     | '/terrace'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/detect' | '/library' | '/sitemap.xml' | '/terrace'
+  to:
+    | '/'
+    | '/about'
+    | '/detect'
+    | '/disease-intel'
+    | '/library'
+    | '/sitemap.xml'
+    | '/terrace'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/detect'
+    | '/disease-intel'
     | '/library'
     | '/sitemap.xml'
     | '/terrace'
@@ -97,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   DetectRoute: typeof DetectRoute
+  DiseaseIntelRoute: typeof DiseaseIntelRoute
   LibraryRoute: typeof LibraryRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TerraceRoute: typeof TerraceRoute
@@ -123,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/library'
       fullPath: '/library'
       preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disease-intel': {
+      id: '/disease-intel'
+      path: '/disease-intel'
+      fullPath: '/disease-intel'
+      preLoaderRoute: typeof DiseaseIntelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/detect': {
@@ -153,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   DetectRoute: DetectRoute,
+  DiseaseIntelRoute: DiseaseIntelRoute,
   LibraryRoute: LibraryRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TerraceRoute: TerraceRoute,

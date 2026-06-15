@@ -19,6 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app import predictor
+from app.routers import weather
 from app.config import ALLOWED_ORIGINS, APP_DESCRIPTION, APP_NAME, APP_VERSION
 from app.schemas import (
     ErrorDetail,
@@ -109,6 +110,10 @@ app.add_middleware(
 )
 
 logger.info("CORS enabled for origins: %s", ALLOWED_ORIGINS)
+
+# Include the weather/recommendations router under the /api prefix
+app.include_router(weather.router, prefix="/api")
+
 
 
 # ---------------------------------------------------------------------------

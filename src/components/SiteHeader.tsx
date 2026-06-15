@@ -5,6 +5,7 @@ import { Leaf, Menu, X } from "lucide-react";
 const nav = [
   { to: "/detect", label: "Detect" },
   { to: "/terrace", label: "Terrace Assistant" },
+  { to: "/disease-intel", label: "Disease Intel" },
   { to: "/library", label: "Disease Library" },
   { to: "/about", label: "About" },
 ];

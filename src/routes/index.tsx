@@ -11,6 +11,8 @@ import {
   Cpu,
   ClipboardCheck,
   ChevronDown,
+  Brain,
+  CloudSun,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
@@ -49,6 +51,7 @@ function HomePage() {
       <Hero />
       <TrustStrip />
       <HowItWorks />
+      <ModuleDashboard />
       <FeatureSplit />
       <LibraryPreview />
       <About />
@@ -215,6 +218,76 @@ function HowItWorks() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+// ── 3-Module Dashboard ─────────────────────────────────────────────────────
+
+const modules = [
+  {
+    icon: ScanLine,
+    to: "/detect" as const,
+    label: "Disease Detection",
+    eyebrow: "Module 01",
+    description:
+      "Upload a leaf image and receive an instant AI-powered diagnosis with treatment and prevention recommendations.",
+    cta: "Detect a disease",
+    accentClass: "bg-primary-soft text-primary group-hover:bg-primary group-hover:text-primary-foreground",
+  },
+  {
+    icon: CloudSun,
+    to: "/terrace" as const,
+    label: "Terrace Assistant",
+    eyebrow: "Module 02",
+    description:
+      "Get live, weather-based care recommendations for your terrace plants — watering, heat, rain, and UV alerts.",
+    cta: "Open assistant",
+    accentClass: "bg-secondary/20 text-secondary-foreground group-hover:bg-secondary group-hover:text-secondary-foreground",
+  },
+  {
+    icon: Brain,
+    to: "/disease-intel" as const,
+    label: "Disease Intelligence",
+    eyebrow: "Module 03",
+    description:
+      "Enhance your diagnosis with weather-aware spread risk analysis, treatment timing, and 5-day disease forecasts.",
+    cta: "Analyse risk",
+    accentClass: "bg-amber/15 text-amber-foreground group-hover:bg-amber group-hover:text-background",
+  },
+];
+
+function ModuleDashboard() {
+  return (
+    <section className="bg-card/40 py-24">
+      <div className="container-px mx-auto max-w-7xl">
+        <SectionHeader
+          eyebrow="Three modules. One ecosystem."
+          title="Everything your terrace garden needs."
+          description="TerraLeaf combines AI disease detection, live weather intelligence, and disease risk forecasting into a single, cohesive platform."
+        />
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {modules.map((m) => (
+            <Link
+              key={m.to}
+              to={m.to}
+              className="group relative flex flex-col rounded-3xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
+            >
+              <div className="flex items-center justify-between">
+                <span className={`grid h-12 w-12 place-items-center rounded-2xl transition-colors ${m.accentClass}`}>
+                  <m.icon className="h-5 w-5" />
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{m.eyebrow}</span>
+              </div>
+              <h3 className="mt-6 font-display text-xl font-semibold">{m.label}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{m.description}</p>
+              <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all group-hover:gap-2.5">
+                {m.cta} <ArrowRight className="h-4 w-4" />
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -413,17 +486,20 @@ function CtaBanner() {
         <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-amber/20 blur-3xl" />
         <div className="relative max-w-2xl">
           <h2 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-            Ready to give your plants a check-up?
+            Ready to give your plants a complete check-up?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-primary-foreground/85">
-            Upload your first leaf in under a minute. No account required.
+            Detect diseases, get weather-smart terrace care, and understand disease spread risk — all in one place.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/detect" className="inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5">
-              Start a free scan <ArrowRight className="h-4 w-4" />
+              Detect Disease <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/library" className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
-              Browse disease library
+            <Link to="/terrace" className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
+              Terrace Assistant
+            </Link>
+            <Link to="/disease-intel" className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
+              Disease Intelligence
             </Link>
           </div>
         </div>
