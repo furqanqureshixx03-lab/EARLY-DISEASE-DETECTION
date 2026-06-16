@@ -1,0 +1,12 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "terraleaf",
+    "main": "./dist/server/server.js",
+    "compatibility_date": "2025-06-16",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "assets": {
+        "directory": "./dist/client"
+    }
+}
